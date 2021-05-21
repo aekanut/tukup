@@ -1,5 +1,5 @@
-const line = require('@line/bot-sdk');
-const express = require('express');
+const line = require('@line/bot-sdk')
+const express = require('express')
 require('dotenv').config()
 
 // create LINE SDK config from env variables
@@ -9,17 +9,17 @@ const config = {
 };
 
 // create LINE SDK client
-const client = new line.Client(config);
+const client = new line.Client(config)
 
 // create Express app
 // about Express itself: https://expressjs.com/
-const app = express();
+const app = express()
 
 let check = {
     "1": true,
     "2": true
 }
-console.log('hi');
+console.log('hi')
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
 app.post('/webhook', line.middleware(config), async (req, res) => {
@@ -544,13 +544,13 @@ app.post('/zone1', async (req, res) => {
         })
     } catch (err) {
         return res.json({
-            status: 'error',
+            status: false,
             error: err
         })
     }
 
     res.json({
-        status: 'ok'
+        status: true
     })
 })
 
